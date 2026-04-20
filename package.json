@@ -1,0 +1,17 @@
+{
+  "name": "todo-mcp-cicd",
+  "version": "1.0.0",
+  "description": "Playwright + GitHub Actions CI/CD with GitHub MCP integration",
+  "scripts": {
+    "setup":       "npx playwright install --with-deps",
+    "test":        "npx playwright test",
+    "test:chrome": "npx playwright test --project=chromium",
+    "test:ui":     "npx playwright test --ui",
+    "report":      "npx playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}

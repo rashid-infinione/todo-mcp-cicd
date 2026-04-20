@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "anthropic.claude-code",
+    "ms-playwright.playwright",
+    "github.vscode-github-actions",
+    "ms-vscode.vscode-typescript-next"
+  ]
+}
