@@ -1,4 +1,10 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices, type ReporterDescription } from '@playwright/test';
+
+const reporters: ReporterDescription[] = [
+  ['list'],
+  ['html', { outputFolder: 'playwright-report', open: 'never' }],
+];
+if (process.env.CI) reporters.push(['github']);
 
 export default defineConfig({
   testDir: './tests',
@@ -6,11 +12,7 @@ export default defineConfig({
   retries: process.env.CI ? 1 : 0,
   workers: process.env.CI ? 1 : undefined,
 
-  reporter: [
-    ['list'],
-    ['html', { outputFolder: 'playwright-report', open: 'never' }],
-    ...(process.env.CI ? [['github'] as ['github']] : []),
-  ],
+  reporter: reporters,
 
   use: {
     headless: true,
