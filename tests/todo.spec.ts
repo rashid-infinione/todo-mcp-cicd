@@ -25,7 +25,7 @@ test.describe('Add todos', () => {
 
   test('adds multiple todos in order', async ({ page }) => {
     await addTodos(page, 'First', 'Second', 'Third');
-    await expect(page.locator('.todo-list li')).toHaveCount(2);
+    await expect(page.locator('.todo-list li')).toHaveCount(3);
     await expect(page.locator('.todo-list li').nth(0)).toContainText('First');
     await expect(page.locator('.todo-list li').nth(1)).toContainText('Second');
     await expect(page.locator('.todo-list li').nth(2)).toContainText('Third');
