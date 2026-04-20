@@ -1,4 +1,4 @@
-# Claude Code Prompts — GitHub MCP + CI/CD
+# Claude Code Prompts — GitHub MCP + CI/CD (Updated)
 
 These prompts use the **GitHub MCP server** to genuinely interact
 with your GitHub Actions CI pipeline. Claude reads real run data,
