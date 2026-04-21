@@ -123,3 +123,16 @@ When you send these prompts, Claude uses real GitHub API tools:
 | Post a PR comment         | create_issue_comment                |
 | Trigger a workflow        | create_workflow_dispatch            |
 | List open issues          | list_issues                         |
+
+---
+
+## PROMPT 8 — Close resolved issues after a green run
+
+```
+Use the GitHub MCP to:
+
+1. List open issues labelled "bug" in rashid-infinione/todo-mcp-cicd
+2. Get the latest workflow run and confirm it passed
+3. If the run passed, close any open bug issues with a comment:
+   "Resolved — CI is green on run #[number]"
+```
