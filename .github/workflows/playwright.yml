@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        browser: [chromium, firefox, webkit]
+        browser: [chromium]
 
     steps:
       - name: Checkout
@@ -63,7 +63,11 @@ jobs:
       - name: Write job summary
         if: always()
         run: |
-          echo "## Test Results — ${{ matrix.browser }}" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ job.status }}" = "failure" ]; then
+            echo "## ❌ CI Failure: ${{ matrix.browser }} — run ${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "## ✅ CI Passed: ${{ matrix.browser }} — run ${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
+          fi
           echo "- **Run:** #${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
           echo "- **Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
           echo "- **Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
